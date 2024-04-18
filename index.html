@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Both What I Like and Love About You</title>
+</head>
+<body>
+    <div>
+        <h1>Both What I Like and Love About You</h1>
+        <p>Answer a few questions to reveal it:</p>
+        <div id="questions">
+            <p>What is your favorite color?</p>
+            <input type="text" id="color">
+            <p>What is your favorite food?</p>
+            <input type="text" id="food">
+            <p>What is your favorite hobby?</p>
+            <input type="text" id="hobby">
+        </div>
+        <button onclick="checkAnswers()">Submit</button>
+        <p id="result" style="display: none;"></p>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            var color = document.getElementById("color").value.trim().toLowerCase();
+            var food = document.getElementById("food").value.trim().toLowerCase();
+            var hobby = document.getElementById("hobby").value.trim().toLowerCase();
+
+            // Define the correct answers here
+            var correctColor = "black";
+            var correctFood = "sinigang";
+            var correctHobby = "sleep";
+
+            if (color === correctColor && food === correctFood && hobby === correctHobby) {
+                document.getElementById("result").innerHTML = "Congratulations! You know your crush well. Click below to reveal your confession.";
+                document.getElementById("result").style.display = "block";
+                var confessionBtn = document.createElement("button");
+                confessionBtn.innerHTML = "Reveal Confession";
+                confessionBtn.onclick = function() {
+                    window.location.href = 'aboutyou.html';
+                };
+                document.body.appendChild(confessionBtn);
+            } else {
+                document.getElementById("result").innerHTML = "Oops! Looks like you need to get to know your crush better. Try again!";
+                document.getElementById("result").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
